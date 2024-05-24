@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>swiftship.org</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background: linear-gradient(135deg, #74ebd5, #9face6);
+        }
+        .container {
+            background-color: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            width: 100%;
+            max-width: 400px;
+        }
+        .header {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+        }
+        .nav-buttons button {
+            padding: 8px 12px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 0.9em;
+            margin-left: 5px;
+        }
+        .nav-buttons button:hover {
+            background-color: #0056b3;
+        }
+        .logo {
+            margin-bottom: 20px;
+        }
+        .logo img {
+            max-width: 100px;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            margin-bottom: 10px;
+            font-size: 1.1em;
+            color: #333;
+        }
+        input[type="text"] {
+            width: 100%;
+            padding: 12px;
+            margin: 8px 0;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 1em;
+        }
+        button {
+            padding: 12px 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 1em;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+
+           .footer {
+            background: #333;
+            color: #fff;
+            text-align: center;
+            padding: 10px 0;
+            margin-top: 10%;
+            width: 5000px;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="nav-buttons">
+            <button onclick="window.location.href='contact us.html'">Contact Us</button>
+            <button onclick="window.location.href='about us.html'">About</button>
+        </div>
+    </div>
+    <div class="container">
+        <div class="logo">
+            <img src="OIP (11).jpg" alt="Deliver Logo">
+        </div>
+        <h2>Track Your Item(s)</h2>
+        <form id="trackForm" onsubmit="return trackReferenceNumber()">
+            <div class="form-group">
+                <label for="referenceNumber">Enter Reference Number:</label>
+                <input type="text" id="referenceNumber" name="trackingid" required>
+            </div> 
+            <button type="submit">Track</button>
+        </form>
+    </div>
+    <footer>
+        <p>&copy; 2024 SwiftShips</p>
+    </footer>
+    <script>
+        function generateUUID() {
+            return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
+                var r = Math.random() * 16 | 0, v = c === 'x' ? r : (r & 0x3 | 0x8);
+                return v.toString(16);
+            });
+        }
+
+        function trackReferenceNumber() {
+            var number = "57B-28A"
+            var referenceNumber = document.getElementById('referenceNumber').value;
+            if (referenceNumber && referenceNumber === number) {
+                var uuid = generateUUID();
+                // Redirect to the next page with the reference number and UUID as query parameters
+                window.location.href = "shipmentstatus.html?referenceNumber=" + encodeURIComponent(referenceNumber) + '&uuid=' + uuid;
+                return false; // Prevent actual form submission
+            } else {
+                alert('Please enter a reference number.');
+                return false;
+            }
+        }
+    </script>
+</body>
+</html>

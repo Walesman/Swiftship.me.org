@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>swiftship.org</title>
+
+    <style>
+        body 
+                {
+            transition: background-color 1s;
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            max-width: 900px;
+            width: 100%;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+        }
+        .title {
+            text-align: center;
+            font-size: 28px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        .card {
+            background: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+        .label {`
+            font-weight: bold;
+            color: #555;
+        }
+        .value {
+            margin-top: 5px;
+            font-size: 16px;
+            color: #333;
+        }
+
+         .buttons button {
+
+                padding: 10px 20px;
+
+                margin: 5px;
+
+                cursor: pointer;
+                color: #660033;
+        }
+       
+       .home {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+        }
+
+         
+       
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="title">Shipment Information</div>
+        <div class="grid-container">
+            <div class="card">
+                <div class="label">Origin</div>
+                <div class="value">Seoul</div>
+            </div>
+            <div class="card">
+                <div class="label">Destination</div>
+                <div class="value">Pennsylvania</div>
+            </div>
+            <div class="card">
+                <div class="label">Package</div>
+                <div class="value">1</div>
+            </div>
+            <div class="card">
+                <div class="label">Status</div>
+                <div class="value">In Transit</div>
+            </div>
+            <div class="card">
+                <div class="label">Carrier</div>
+                <div class="value">FedEx</div>
+            </div>
+            <div class="card">
+                <div class="label">Weight</div>
+                <div class="value">50 kg</div>
+            </div>
+            <div class="card">
+                <div class="label">Shipment Mode</div>
+                <div class="value">Air Freight</div>
+            </div>
+            <div class="card">
+                <div class="label">Carrier Reference No</div>
+                <div class="value">57B-28A</div>
+            </div>
+           
+            <div class="card">
+                <div class="label">Product</div>
+                <div class="value">Box</div>
+            </div>
+            <div class="card">
+                <div class="label">Qty</div>
+                <div class="value">1</div>
+            </div>
+            <div class="card">
+                <div class="label">Type of Shipment</div>
+                <div class="value">Air Freight</div>
+            </div>
+            <div class="card">
+                <div class="label">Payment Mode</div>
+                <div class="value">Cheque</div>
+            </div>
+        </div>
+    </div>
+
+    
+     <div class="home">
+        <button onclick="goToNext()"><a href="shipmentstatus.html">Return</a> </button>
+    </div>
+
+
+    <script>
+
+        const colors = ['#ffcccc', '#ccffcc', '#ccccff', '#ffffcc', '#ccffff', '#ffccff'];
+        let currentColorIndex = 0;
+
+        function changeBackgroundColor() {
+            document.body.style.backgroundColor = colors[currentColorIndex];
+            currentColorIndex = (currentColorIndex + 1) % colors.length;
+        }
+
+        setInterval(changeBackgroundColor, 25000); // Change color every 25 seconds
+        changeBackgroundColor(); // Initial call to set the first color
+    </script>
+   
+</body>
+</html>
